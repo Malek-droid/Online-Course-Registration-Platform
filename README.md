@@ -9,13 +9,39 @@ A simple and responsive web application for managing student registrations, buil
 
 ### Installation
 1. Open your terminal in the project root directory.
-2. Run the following command to install dependencies for both the root, backend, and frontend:
+2. Install **Backend** dependencies:
    ```bash
-   npm run install-all
+   cd backend
+   npm install
+   cd ..
+   ```
+3. Install **Frontend** dependencies:
+   ```bash
+   cd frontend
+   npm install
+   cd ..
    ```
 
 ### Running the App
-1. Start both the backend and frontend servers concurrently:
+To run the application, you will need **two separate terminal windows**.
+
+**Terminal 1 (Backend):**
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Start the server:
+   ```bash
+   npm run dev
+   ```
+   (The server will start on `http://localhost:5000`)
+
+**Terminal 2 (Frontend):**
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Start the React app:
    ```bash
    npm run dev
    ```
