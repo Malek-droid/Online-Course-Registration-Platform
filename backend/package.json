@@ -2,6 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "description": "Student registration backend API",
+    "type": "module",
     "main": "server.js",
     "scripts": {
         "dev": "nodemon server.js",
