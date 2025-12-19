@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const db = require('./database');
+import express from 'express';
+import cors from 'cors';
+import db from './database.js';
 
 const app = express();
 const PORT = 5000;
