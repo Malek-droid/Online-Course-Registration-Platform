@@ -1,5 +1,9 @@
-const Database = require('better-sqlite3');
-const path = require('path');
+import Database from 'better-sqlite3';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const dbPath = path.join(__dirname, 'students.db');
 const db = new Database(dbPath);
@@ -24,12 +28,12 @@ const createTable = () => {
 
 createTable();
 
-const getAllStudents = () => {
+export const getAllStudents = () => {
     const sql = 'SELECT * FROM students ORDER BY createdAt DESC';
     return db.prepare(sql).all();
 };
 
-const addStudent = (student) => {
+export const addStudent = (student) => {
     const sql = `
     INSERT INTO students (name, email, course, experiencePrealable, createdAt)
     VALUES (@name, @email, @course, @experiencePrealable, @createdAt)
@@ -39,13 +43,13 @@ const addStudent = (student) => {
     return { id: info.lastInsertRowid, ...student };
 };
 
-const emailExists = (email) => {
+export const emailExists = (email) => {
     const sql = 'SELECT email FROM students WHERE email = ?';
     const result = db.prepare(sql).get(email.toLowerCase());
     return !!result;
 };
 
-const deleteStudentByEmail = (email) => {
+export const deleteStudentByEmail = (email) => {
 
     const sql = 'SELECT * FROM students WHERE email = ?';
     const student = db.prepare(sql).get(email.toLowerCase());
@@ -61,7 +65,7 @@ const deleteStudentByEmail = (email) => {
     return student;
 };
 
-module.exports = {
+export default {
     getAllStudents,
     addStudent,
     emailExists,

@@ -1,4 +1,4 @@
-const { getAllStudents } = require('./database');
+import { getAllStudents } from './database.js';
 
 try {
     const students = getAllStudents();
